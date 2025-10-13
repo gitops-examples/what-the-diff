@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basic-app
+  template:
+    metadata:
+      labels:
+        app: basic-app
+    spec:
+      containers:
+      - name: basic-app
+        image: busybox:latest # A simple image for demonstration
+        command: ["sh", "-c", "echo $APP_MESSAGE && echo 'Application running on port:' $APP_PORT && sleep 3600"]
+        envFrom:
+        - configMapRef:
+            name: basic-app-config
