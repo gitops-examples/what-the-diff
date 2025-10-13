@@ -7,11 +7,16 @@ Out-of-Sync state and how Argo CD views the change in its diffs.
 
 ### Test Cases
 
-| Use Case                                   | kubectl diff | kubectl diff (SS)   |Argo CD Legacy Diff | Argo CD (SS) | Comment |
-| -------------                              | ------------ | ------------------- | ------------------ | ------------ | ------- |
-| Edit the number of replicas in Deployment  |       ✅     |           ✅        |         ✅         |      ✅      |         |
-| Add a new label                            |       ❌     |           ✅        |         ❌         |      ❌      | Discuss why Argo CD is not picking this up with SS |
-| Change an existing label                   |      [ ]     |          [ ]        |         [ ]        |      [ ]     |         |
-| Add a data item to ConfigMap               |      [ ]     |          [ ]        |         [ ]        |      [ ]     |         |
-| Change an existing data item in ConfigMap  |      [ ]     |          [ ]        |         [ ]        |      [ ]     |         |
+| Use Case                                     | kubectl diff | kubectl diff (SS)   |Argo CD Legacy Diff | Argo CD (SS) | Comment |
+| -------------                                | ------------ | ------------------- | ------------------ | ------------ | ------- |
+| Edit the number of replicas in Deployment    |       ✅     |           ✅        |         ✅         |      ✅      |         |
+| Add a new label                              |       ❌     |           ✅        |         ❌         |      ❌      | Discuss why Argo CD is not picking this up with SS |
+| Add a new label (--save-config)              |       ✅     |           ✅        |         ✅         |      []      |         |
+| Change an existing label                     |       ✅     |           ✅        |         ✅         |              |         |
+| Add a data item to ConfigMap                 |       ❌     |           ❌        |         ❌         |      []      |         |
+| Add a data item to ConfigMap (--save-config) |       ✅     |           ✅        |         ✅         |      []      |         |
+| Change an existing data item in ConfigMap    |       ✅    |            ✅        |         ✅         |      []      |         |
+| Add an env var                               |              |                     |                    |              |         |
 
+* SS - Server-Side-Diff
+* --save-config - Add `--save-config` to `kubectl edit` command to update `last-applied-configuration` annotation
