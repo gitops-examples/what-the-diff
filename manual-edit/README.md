@@ -11,12 +11,12 @@ Out-of-Sync state and how Argo CD views the change in its diffs.
 | -------------                                | ------------ | ------------------- | ------------------ | ------------ | ------- |
 | Edit the number of replicas in Deployment    |       ✅     |           ✅        |         ✅         |      ✅      |         |
 | Add a new label                              |       ❌     |           ✅        |         ❌         |      ❌      | Discuss why Argo CD is not picking this up with SS |
-| Add a new label (--save-config)              |       ✅     |           ✅        |         ✅         |      []      |         |
+| Add a new label (--save-config)              |       ✅     |           ✅        |         ✅         |              |         |
 | Change an existing label                     |       ✅     |           ✅        |         ✅         |              |         |
-| Add a data item to ConfigMap                 |       ❌     |           ❌        |         ❌         |      []      |         |
-| Add a data item to ConfigMap (--save-config) |       ✅     |           ✅        |         ✅         |      []      |         |
-| Change an existing data item in ConfigMap    |       ✅    |            ✅        |         ✅         |      []      |         |
-| Add an env var                               |              |                     |                    |              |         |
+| Add a data item to ConfigMap                 |       ❌     |           ❌        |         ❌         |              |         |
+| Add a data item to ConfigMap (--save-config) |       ✅     |           ✅        |         ✅         |              |         |
+| Change an existing data item in ConfigMap    |       ✅     |           ✅        |         ✅         |              |         |
+| Add an env var                               |       ❌     |           ❌        |         ❌         |              |         |
 
 * SS - Server-Side-Diff
 * --save-config - Add `--save-config` to `kubectl edit` command to update `last-applied-configuration` annotation
