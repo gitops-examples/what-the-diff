@@ -10,8 +10,10 @@ Out-of-Sync state and how Argo CD views the change in its diffs.
 | Use Case                                     | kubectl diff | kubectl diff (SS)   |Argo CD Legacy Diff | Argo CD (SS) | Comment |
 | -------------                                | ------------ | ------------------- | ------------------ | ------------ | ------- |
 | Edit the number of replicas in Deployment    |       ✅     |           ✅        |         ✅         |      ✅      |         |
+| Add paused field in Deployment               |       ❌     |           ❌        |         ❌         |              |         |
 | Add a new label                              |       ❌     |           ✅        |         ❌         |      ❌      | Discuss why Argo CD is not picking this up with SS |
 | Add a new label (--save-config)              |       ✅     |           ✅        |         ✅         |              |         |
+| Delete a label                               |       ✅     |           ✅        |         ✅         |              |         |
 | Change an existing label                     |       ✅     |           ✅        |         ✅         |              |         |
 | Add a data item to ConfigMap                 |       ❌     |           ❌        |         ❌         |              |         |
 | Add a data item to ConfigMap (--save-config) |       ✅     |           ✅        |         ✅         |              |         |
