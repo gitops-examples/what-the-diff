@@ -29,6 +29,6 @@ Out-of-Sync state and how Argo CD views the change in its diffs.
 ## Thoughts
 
 * Simplistically I always thought that `kubectl diff` compares to `last-applied-configuration` annotation
-when using client-side diff and when using server-side it should compares to live object. However testing seems
+when using client-side diff and when using server-side it compares to live object. However testing seems
 to indicate it's not that simple, why doesn't it hold up for adding a field to the ConfigMap?
 * I suspect the `paused` field might be a special case given the imperativeness of it, question on Kubernetes slack #kubernetes-users
