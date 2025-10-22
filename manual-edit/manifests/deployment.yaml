@@ -21,6 +21,8 @@ spec:
         env:
         - name: TEST_VAR
           value: value
+        - name: TEST_VAR2
+          value: value2
         envFrom:
         - configMapRef:
             name: basic-app-config
