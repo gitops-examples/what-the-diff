@@ -20,6 +20,7 @@ Out-of-Sync state and how Argo CD views the change in its diffs.
 | Change an existing data item in ConfigMap                |       ✅     |           ✅        |         ✅         |              |         |
 | Add an env var                                           |       ❌     |           ❌        |         ❌         |              |         |
 | Change an env var                                        |       ✅     |           ✅        |         ✅         |              |         |
+| Delete an env var                                        |       ✅     |           ✅        |         ✅         |              |         |
 | Change default value (i.e. revisionHistoryLimit to 11)   |       ❌     |           ❌        |         ❌         |              |         |
 | Change default value (--save-config)                     |       ✅     |           ✅        |         ✅         |              |         |
 | Add `paused` field to deployment                         |       ❌     |           ❌        |         ❌         |      ❌      |  [omitempty](https://kubernetes.slack.com/archives/C09NXKJKA/p1760999271617209)  |
