@@ -12,7 +12,7 @@ Out-of-Sync state and how Argo CD views the change in its diffs.
 | Edit the number of replicas in Deployment                |       ✅     |           ✅        |         ✅         |      ✅      |         |
 | Add paused field in Deployment                           |       ❌     |           ❌        |         ❌         |      ❌      |   Paused state is detected but change is not      |
 | Add a new label                                          |       ❌     |           ❌        |         ❌         |      ❌      | Label additions are not detected for individual labels, adding a new `labels` block will be detected |
-| Add a new label (--save-config)                          |       ✅     |           ❌        |         ✅         |      ❌      |   Re-test client side to make sure behavior is the same |
+| Add a new label (--save-config)                          |       ✅     |           ❌        |         ✅         |      ❌      |   Re-test Argo CD client side to make sure behavior is the same |
 | Add a new label (--field-manager='argocd-controller')    |       ❌     |           ❌        |                    |      ❌      |         |
 | Delete a label                                           |       ✅     |           ✅        |         ✅         |      ✅      |         |
 | Change an existing label                                 |       ✅     |           ✅        |         ✅         |      ✅      |         |
@@ -27,11 +27,12 @@ Out-of-Sync state and how Argo CD views the change in its diffs.
 | Add `paused` field to deployment                         |       ❌     |           ❌        |         ❌         |      ❌      |  [omitempty](https://kubernetes.slack.com/archives/C09NXKJKA/p1760999271617209)  |
 
 * SS - Server-Side-Diff
-* --save-config - Add `--save-config` to `kubectl edit` command to update `last-applied-configuration` annotation
+* --save-config. Add `--save-config` to `kubectl edit` command to update `last-applied-configuration` annotation
+* --field-manager='argocd-controller'. Add this parameter to `kubectl edit` command ro register change against specific field manager
 
 ## Thoughts
 
-* Simplistically I always thought that `kubectl diff` compares to `last-applied-configuration` annotation
-when using client-side diff and when using server-side it compares to live object. However testing seems
-to indicate it's not that simple, why doesn't it hold up for adding a field to the ConfigMap?
-* I suspect the `paused` field might be a special case given the imperativeness of it, question on Kubernetes slack #kubernetes-users
+* `kubectl diff` and `argocd diff` are not conventional diff utilities, instead they provide a patch for what would happen if
+you ran a `kubectl apply` with the file. This is why manually adding a new field or editing a field in the live object that isn't
+in the manifest gets ignored, kubernetes assumes a multi-controller world and only looks at fields included in the manifest.
+* It's cleat that last-applied-annotation has no impact on server-side diff
