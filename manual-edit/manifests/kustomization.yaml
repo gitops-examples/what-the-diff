@@ -1,8 +1,3 @@
 resources:
 - configmap.yaml
 - deployment.yaml
-
-images:
-- name: busybox
-  newName: docker.io/busybox
-  newTag: v1.2.4

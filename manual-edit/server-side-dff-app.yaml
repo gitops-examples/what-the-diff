@@ -1,3 +1,4 @@
+# Test Server-Side Diff
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
