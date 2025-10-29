@@ -25,4 +25,4 @@ spec:
           value: value2
         envFrom:
         - configMapRef:
-            name: basic-app-config
+            name: basic-app
