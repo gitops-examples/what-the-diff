@@ -4,7 +4,6 @@ metadata:
   labels:
     strimzi.io/cluster: backup-connect-cluster
   name: s3-sink-consumer-offsets
-  namespace: mynamespace
 spec:
   autoRestart:
     enabled: true
