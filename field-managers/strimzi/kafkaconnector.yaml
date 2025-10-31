@@ -1,0 +1,12 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaConnector
+metadata:
+  labels:
+    strimzi.io/cluster: backup-connect-cluster
+  name: s3-sink-consumer-offsets
+  namespace: mynamespace
+spec:
+  autoRestart:
+    enabled: true
+  class: io.lenses.streamreactor.connect.aws.s3.sink.S3ConsumerGroupsSinkConnector
+  tasksMax: 1
