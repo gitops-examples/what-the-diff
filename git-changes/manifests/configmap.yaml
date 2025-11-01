@@ -4,3 +4,4 @@ metadata:
   name: basic-app-config
 data:
   APP_MESSAGE: "Hello from ConfigMap!"
+  APP_PORT: "8080"
