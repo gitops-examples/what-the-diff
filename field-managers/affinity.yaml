@@ -4,6 +4,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: ServerSideDiff=true
+    argocd.argoproj.io/client-side-apply-migration-manager: "kubectl"
   name: affinity
   namespace: openshift-gitops
 spec:
@@ -22,3 +23,4 @@ spec:
       selfHeal: false
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true
