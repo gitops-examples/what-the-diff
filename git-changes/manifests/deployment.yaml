@@ -9,6 +9,7 @@ metadata:
     test2: value
 spec:
   replicas: 1
+  revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: basic-app
@@ -17,7 +18,6 @@ spec:
       labels:
         app: basic-app
     spec:
-      revisionHistoryLimit: 10
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
