@@ -8,7 +8,7 @@ metadata:
     test: value
     test2: value
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: basic-app
