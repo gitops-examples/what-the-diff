@@ -9,7 +9,8 @@ metadata:
     test2: value
 spec:
   replicas: 1
-  revisionHistoryLimit: 11
+  #revisionHistoryLimit: 11
+  revisionHistorylmt: 10
   selector:
     matchLabels:
       app: basic-app
