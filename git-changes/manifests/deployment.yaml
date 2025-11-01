@@ -17,6 +17,7 @@ spec:
       labels:
         app: basic-app
     spec:
+      revisionHistoryLimit: 10
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
