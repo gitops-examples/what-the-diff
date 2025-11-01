@@ -10,3 +10,5 @@ This tests changes that are made in git, i.e. deploy application, update manifes
 | -------------                                            | ------------ | ------------------- | ------------------ | ------------ | ------------- | ------- |
 | Remove data element from configmap                       |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
 | Remove label                                             |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
+| Remove annotation                                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
+
