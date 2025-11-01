@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/gitops-examples/what-the-diff.git
     targetRevision: HEAD
-    path: field-managers/deployments/manifests
+    path: field-managers/deployment/manifests
   destination:
     server: https://kubernetes.default.svc
     namespace: affinity
