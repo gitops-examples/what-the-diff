@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-app
+  labels:
+    test: value
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: basic-app
+  template:
+    metadata:
+      labels:
+        app: basic-app
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: node-role.kubernetes.io/worker
+                    operator: In
+                    values:
+                      - ''
+      containers:
+      - name: basic-app
+        image: quay.io/openshifttest/busybox:latest
+        command: ["sh", "-c", "echo $APP_MESSAGE && echo 'Application running on port:' $APP_PORT && sleep 3600"]
