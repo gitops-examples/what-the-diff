@@ -23,6 +23,10 @@ spec:
                     operator: In
                     values:
                       - ''
+                  - key: kubernetes.io/os
+                    operator: In
+                    values:
+                      - 'linux'
       containers:
       - name: basic-app
         image: quay.io/openshifttest/busybox:latest
