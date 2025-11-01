@@ -4,7 +4,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: ServerSideDiff=false
-  name: git-changes
+  name: git-changes-legacy
   namespace: openshift-gitops
 spec:
   project: default
@@ -14,9 +14,10 @@ spec:
     path: git-changes/manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: git-changes
+    namespace: git-changes-legacy
   syncPolicy:
     automated:
+      enabled: false
       prune: false
       selfHeal: false
     syncOptions:
