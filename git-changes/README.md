@@ -12,4 +12,7 @@ This tests changes that are made in git, i.e. deploy application, update manifes
 | Remove annotation                                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
 | Remove annotation block                                  |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
 | Add `affinity` to Deployment                             |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |         |
-| Relove `affinity` from Deployment                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
+| Remove `affinity` from Deployment                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
+| Add `revisionHistoryLimit` with default to Deployment    |       ❌     |         ❌          |         ❌         |      ❌      |      ❌       | Negative result is what we want |
+| Add `revisionHistoryLimit: 11` to Deployment             |       ❌     |         ❌          |         ❌         |      ❌      |      ❌       | Negative result is what we want |
+
