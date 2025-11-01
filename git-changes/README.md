@@ -8,6 +8,7 @@ This tests changes that are made in git, i.e. deploy application, update manifes
 
 | Use Case                                                 | kubectl diff | kubectl diff (SS)   |Argo CD Legacy Diff | Argo CD (SS) | Argo CD (SSA) | Comment |
 | -------------                                            | ------------ | ------------------- | ------------------ | ------------ | ------------- | ------- |
+| Change Replicas                                          |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
 | Remove data element from configmap                       |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
 | Remove label                                             |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
 | Remove annotation                                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         |
