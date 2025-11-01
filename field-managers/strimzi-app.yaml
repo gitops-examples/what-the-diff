@@ -4,6 +4,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
+    argocd.argoproj.io/client-side-apply-migration-manager: "nginx-ingress-controller"
   name: strimzi
   namespace: openshift-gitops
 spec:
