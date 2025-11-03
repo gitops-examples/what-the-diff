@@ -1,22 +1,23 @@
-# Test Legacy (client-side) diff
+# Test Server-Side Diff
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/compare-options: ServerSideDiff=false
-  name: manual-edit-legacy
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
+  name: git-changes-ss
   namespace: openshift-gitops
 spec:
   project: default
   source:
     repoURL: https://github.com/gitops-examples/what-the-diff.git
     targetRevision: HEAD
-    path: manual-edit/manifests
+    path: git-changes/manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: manual-edit-legacy
+    namespace: git-changes-ss
   syncPolicy:
     automated:
+      enabled: false
       prune: false
       selfHeal: false
     syncOptions:

@@ -25,3 +25,19 @@ spec:
   * [kubectl diff not producing any changes when fields are removed from manifest](https://github.com/kubernetes/kubectl/issues/1403#issuecomment-1501627912)
   * [kubectl diff unable to detect changes made by kubectl edit](https://github.com/kubernetes/kubectl/issues/1744#issuecomment-2885607523)
   * [Server-side apply: migration from client-side apply leaves stuck fields in the object](https://github.com/kubernetes/kubernetes/issues/99003)
+
+### OpenShift GitOps
+
+These use cases where run using OpenShift GitOps 1.18 (Argo CD 3.1)
+
+It uses the default setup of `cluster-admins` group, to create this group run the following:
+
+```
+oc adm groups new cluster-admins admin
+```
+
+You also need to give the application-controller SA `cluster-admin` rights:
+
+```
+oc adm policy add-cluster-role-to-user cluster-admin -z openshift-gitops-argocd-application-controller -n openshift-gitops
+```

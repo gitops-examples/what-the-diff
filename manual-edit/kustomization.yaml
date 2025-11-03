@@ -1,0 +1,5 @@
+resources:
+
+- legacy-diff-app.yaml
+- server-side-apply-app.yaml
+- server-side-diff-app.yaml

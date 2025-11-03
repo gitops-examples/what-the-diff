@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: manual-edit
+  name: manual-edit-ssa
   namespace: openshift-gitops
 spec:
   project: default
@@ -12,7 +12,7 @@ spec:
     path: manual-edit/manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: manual-edit
+    namespace: manual-edit-ssa
   syncPolicy:
     automated:
       prune: false

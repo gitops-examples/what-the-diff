@@ -4,7 +4,7 @@ kind: Application
 metadata:
   annotations:
     argocd.argoproj.io/compare-options: ServerSideDiff=true
-  name: manual-edit
+  name: manual-edit-ss
   namespace: openshift-gitops
 spec:
   project: default
@@ -14,7 +14,7 @@ spec:
     path: manual-edit/manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: manual-edit
+    namespace: manual-edit-ss
   syncPolicy:
     automated:
       prune: false
