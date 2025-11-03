@@ -15,7 +15,7 @@ spec:
     namespace: git-changes-ssa
   syncPolicy:
     automated:
-      enabled: true
+      enabled: false
       prune: false
       selfHeal: false
     syncOptions:

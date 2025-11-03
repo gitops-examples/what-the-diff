@@ -17,7 +17,7 @@ spec:
     namespace: git-changes-legacy
   syncPolicy:
     automated:
-      enabled: true
+      enabled: false
       prune: false
       selfHeal: false
     syncOptions:
