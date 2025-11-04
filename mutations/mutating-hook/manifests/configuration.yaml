@@ -1,0 +1,28 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingWebhookConfiguration
+metadata:
+  name: deployment-replicas-webhook
+webhooks:
+  - name: deployment-replicas-webhook.mutating-test-webhook.svc
+    admissionReviewVersions: ["v1"]
+    sideEffects: None
+    failurePolicy: Fail
+    namespaceSelector:
+      matchExpressions:
+        - key: kubernetes.io/metadata.name
+          operator: In
+          values:
+            - mutating-test
+    clientConfig:
+      service:
+        name: deployment-replicas-webhook
+        namespace: mutating-test-webhook
+        path: /mutate
+        port: 443
+        caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tTUlJRFVUQ0NBam1nQXdJQkFnSUlmeW1tN2hha2lwRXdEUVlKS29aSWh2Y05BUUVMQlFBd05qRTBNRElHQTFVRUF3d3JiM0JsYm5Ob2FXWjBMWE5sY25acFkyVXRjMlZ5ZG1sdVp5MXphV2R1WlhKQU1UYzJNakU0TnpjNE1UQWVGdzB5TlRFeE1ETXhOak0yTWpGYUZ3MHlPREF4TURJeE5qTTJNakphTURZeE5EQXlCZ05WQkFNTUsyOXdaVzV6YUdsbWRDMXpaWEoyYVdObExYTmxjblpwYm1jdGMybG5ibVZ5UURFM05qSXhPRGMzT0RFd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUNrd2Nra0NWK1RXMVhKRXJBM1Y1TjFtZkNjR1UvZEFSNGlXeUlJa1hWaWFraFNwVXJUM21zSlFPNDBJaERUWHNoVGlCbW82TFQ5c1NlcGVVeUZIbi9WMkE2TmZrUThiSjZOWFAzcnZJa3YydVJUcmV4eFVoY3ZqNDM1a25FSUNIVlN4SEsyL2E2cE53cTFDaG5DK0RHc216Zyt1YXpkOERqZ2QyV0t4VnFpU084bHpuTHFSaFRLK0lsTllFTWplR0YrUXp1YjBuWmZIOXlFY3krZDBRd2pMVkxlSDdkcUhXZ2pkZy9QUnpNZUt1SHRPRDk4dGZIa2NMazdHWHA5TEhjVjZtZmc5cVNFSlFoMGJPbTRUREVsc3pmanJIelgwblEwTHNONkIzajFXTzZ3Mncybktvcy9JMDJCMmxzYk4wU3pSRXoxOGFwcGFxQVdobmJteG9yUkFnTUJBQUdqWXpCaE1BNEdBMVVkRHdFQi93UUVBd0lDcERBUEJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJSWnhHT0VVQzh4ekNLbmovZWoxWm1ZKzJuZktEQWZCZ05WSFNNRUdEQVdnQlJaeEdPRVVDOHh6Q0tuai9lajFabVkrMm5mS0RBTkJna3Foa2lHOXcwQkFRc0ZBQU9DQVFFQWhGZkZTT0dRRlBrbmpXd1YzaUxlMHkvTmFYaUl2Q2V3REJ0am5LbkpZYVNCQ0F2aTBJUlZnZXdjUlFoMFFGbjF5WnRrUERFT2FoTHo4bVFsUStNL2wvNzU1UlVWR3JOZ21rNnM0RWQveVhqQXJoZWF2cHhHK0VsTmlTZlBUOEZOZ1pJUFZaeGRGcVo2ZDd2UkJRL1pPYloxbDY4REF3L3N6NUFJcTBIc2RIMFJWTGRkVVQxN2orYzdzaDA4Ny91V1M5SzJLWVBkRDNNR2IxNktGMHY4T2ppM0FNMXhqaExpR0s2UkVXcXF2UWpQTW50Y2U1QmRWQzh1ei9vaEM3VkJSNS9Jc2tnNzhaWi9VRWNwVjRSRnJnV205MC9PUndoaHY2V3JOVUQ2Y2VzM2NJSmU4VjVIWTFRaVBEY3BteTVpR1hydXVsbEpidlhVUVgzWENzOFNNdz09LS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    rules:
+      - apiGroups: ["apps"]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["deployments"]
+    timeoutSeconds: 5

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-replicas-webhook
+  namespace: mutating-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-replicas-webhook
+  template:
+    metadata:
+      labels:
+        app: deployment-replicas-webhook
+    spec:
+      containers:
+        - name: webhook
+          image: quay.io/gnunn/what-the-diff:latest
+          args:
+            - "what-the-diff"
+            - "--tls-cert-file=/tls/tls.crt"
+            - "--tls-private-key-file=/tls/tls.key"
+          ports:
+            - containerPort: 8443
+          volumeMounts:
+            - name: tls
+              mountPath: /tls
+              readOnly: true
+            - mountPath: /etc/pki/tls/certs/service-ca.crt
+              name: ca-bundle
+              subPath: service-ca.crt
+      volumes:
+        - name: tls
+          secret:
+            secretName: hook-tls
+        - name: ca-bundle
+          configMap:
+            name: ca-bundle

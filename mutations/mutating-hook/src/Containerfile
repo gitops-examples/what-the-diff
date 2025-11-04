@@ -1,0 +1,12 @@
+FROM registry.access.redhat.com/ubi9/ubi-minimal:latest
+
+LABEL summary="Test Mutating WebHook"
+
+# Copy the built binary from the builder stage
+COPY  what-the-diff /usr/local/bin/what-the-diff
+
+# Expose the port your application listens on
+EXPOSE 8080
+
+# Define the command to run the application
+CMD ["/usr/local/bin/what-the-diff"]

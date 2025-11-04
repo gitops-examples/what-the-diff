@@ -1,0 +1,8 @@
+namespace: mutating-test-webhook
+
+resources:
+- namespace.yaml
+- configmap.yaml
+- service.yaml
+- deployment.yaml
+- configuration.yaml
