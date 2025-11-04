@@ -5,7 +5,8 @@ This repo contains examples of different diff'ing scenarios with `kubectl diff` 
 ### Use Cases
 
 1. [Manual Edits](https://github.com/gitops-examples/what-the-diff/tree/main/manual-edit)
-2. [Mutations](https://github.com/gitops-examples/what-the-diff/tree/main/server-side)
+2. [Changes in git](https://github.com/gitops-examples/what-the-diff/tree/main/git-changes)
+3. [Mutations](https://github.com/gitops-examples/what-the-diff/tree/main/server-side)
 
 ### Notes
 
