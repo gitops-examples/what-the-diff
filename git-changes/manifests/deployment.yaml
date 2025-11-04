@@ -6,7 +6,7 @@ metadata:
     test: value
   annotations:
     test: value
-    #test2: value
+    test2: value
 spec:
   replicas: 1
   revisionHistoryLimit: 10
