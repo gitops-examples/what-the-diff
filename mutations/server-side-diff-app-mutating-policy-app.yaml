@@ -1,0 +1,27 @@
+# Test basic Server-Side Diff
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
+  name: mutating-test-policy
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gitops-examples/what-the-diff.git
+    targetRevision: HEAD
+    path: mutations/manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mutating-test-policy
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+    managedNamespaceMetadata:
+      labels:
+        mutate: test
