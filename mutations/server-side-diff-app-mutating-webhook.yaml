@@ -3,8 +3,8 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-    argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=false
-    #argocd.argoproj.io/compare-options: ServerSideDiff=true
+    #argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
   name: mutating-webhook
   namespace: openshift-gitops
 spec:
@@ -23,3 +23,4 @@ spec:
       selfHeal: false
     syncOptions:
       - CreateNamespace=true
+      # - ServerSideApply=true

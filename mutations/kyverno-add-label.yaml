@@ -2,7 +2,7 @@ apiVersion: kyverno.io/v1
 kind: Policy
 metadata:
   name: add-labels
-  namespace: server-side
+  namespace: mutating-test-kyverno
   annotations:
     policies.kyverno.io/title: Add Labels
     policies.kyverno.io/category: Sample
