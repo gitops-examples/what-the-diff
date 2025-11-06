@@ -8,8 +8,8 @@ This tests changes that are made in git, i.e. deploy application, update manifes
 | -------------                                            | ------------ | ------------------- | ------------------ | ------------ | ------------- | ------------------ |-------- |
 | Change Replicas                                          |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |         ✅         |         |
 | Remove data element from ConfigMap                       |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         ✅         |         |
-| Remove label                                             |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |                    |         |
-| Remove annotation                                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |                    |         |
+| Remove label                                             |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         ✅         |         |
+| Remove annotation                                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         ✅         |         |
 | Remove annotation block                                  |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |                    |         |
 | Add `affinity` to Deployment                             |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |         ✅         |         |
 | Remove `affinity` from Deployment                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         ✅         |         |
