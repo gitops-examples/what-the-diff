@@ -10,7 +10,7 @@ metadata:
 spec:
   replicas: 1
   #revisionHistoryLimit: 11
-  revisionHistorylmt: 10
+  #revisionHistorylmt: 10
   selector:
     matchLabels:
       app: basic-app
