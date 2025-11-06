@@ -1,0 +1,25 @@
+# Tested Structured-Merge
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd.argoproj.io/compare-options: ServerSideDiff=true
+  name: git-changes-ssa-ss
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/gitops-examples/what-the-diff.git
+    targetRevision: HEAD
+    path: git-changes/manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: git-changes-ssa-ss
+  syncPolicy:
+    automated:
+      enabled: false
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
