@@ -6,12 +6,12 @@ This tests changes that are made in git, i.e. deploy application, update manifes
 
 | Use Case                                                 | kubectl diff | kubectl diff (SS)   |Argo CD Legacy Diff | Argo CD (SS) | Argo CD (SSA) | Argo CD (SSA + SS) | Comment |
 | -------------                                            | ------------ | ------------------- | ------------------ | ------------ | ------------- | ------------------ |-------- |
-| Change Replicas                                          |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |                    |         |
+| Change Replicas                                          |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |         ✅         |         |
 | Remove data element from ConfigMap                       |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |                    |         |
 | Remove label                                             |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |                    |         |
 | Remove annotation                                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |                    |         |
 | Remove annotation block                                  |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |                    |         |
-| Add `affinity` to Deployment                             |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |                    |         |
+| Add `affinity` to Deployment                             |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |         ✅         |         |
 | Remove `affinity` from Deployment                        |       ✅     |         ❌          |         ✅         |      ❌      |      ✅       |         ✅         |         |
 | Add `revisionHistoryLimit` with default to Deployment    |       ❌     |         ❌          |         ❌         |      ❌      |      ❌       |                    | Negative result is what we want |
 | Add `revisionHistoryLimit: 11` to Deployment             |       ✅     |         ✅          |         ✅         |      ✅      |      ✅       |                    |         |
