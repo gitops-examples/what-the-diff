@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: basic-app
-        image: quay.io/openshifttest/busybox:latest
+        # image: quay.io/openshifttest/busybox:latest
+        image: docker.io/busybox:latest
         command: ["sh", "-c", "echo $APP_MESSAGE && echo 'Application running on port:' $APP_PORT && sleep 3600"]
         env:
         - name: TEST_VAR
