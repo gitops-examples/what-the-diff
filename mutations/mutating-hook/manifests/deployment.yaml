@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: webhook
-          image: quay.io/gnunn/what-the-diff:latest
+          #image: quay.io/gnunn/what-the-diff:latest
+          image: docker.io/busybox:latest
           args:
             - "what-the-diff"
             - "--tls-cert-file=/tls/tls.crt"
